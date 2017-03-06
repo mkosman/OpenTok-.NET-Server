@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 
 namespace OpenTokSDK.Constants
@@ -10,9 +11,9 @@ namespace OpenTokSDK.Constants
      */
     class OpenTokVersion
     {
-        private static string Version = "Opentok-DotNet-SDK/" + typeof(OpenTokVersion).Assembly.GetName().Version;
+	    private static string Version => "Opentok-DotNet-SDK/" + Assembly.GetEntryAssembly().GetName().Version;
 
-        public static string GetVersion()
+	    public static string GetVersion()
         {
             return Version;
         }

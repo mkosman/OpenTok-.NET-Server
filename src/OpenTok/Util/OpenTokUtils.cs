@@ -5,7 +5,7 @@ using System.Text;
 
 using System.Security.Cryptography;
 using System.Net;
-
+using System.Threading.Tasks;
 using Newtonsoft.Json;
 
 namespace OpenTokSDK.Util

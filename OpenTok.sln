@@ -1,26 +1,20 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenTok", "OpenTok\OpenTok.csproj", "{5CA3CED1-4957-4968-900B-02F0493058E7}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A49AA33E-2CF4-434F-B051-3DB1B8E1D48C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DC02B3EA-F1B3-4A39-A151-4FE61A39F209}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{34871A9F-E4A7-48B9-8752-2765BD27132B}"
 	ProjectSection(SolutionItems) = preProject
-		.gitattributes = .gitattributes
-		.gitignore = .gitignore
-		.travis.yml = .travis.yml
-		appveyor.yml = appveyor.yml
-		CONTRIBUTING.md = CONTRIBUTING.md
-		DEVELOPING.md = DEVELOPING.md
-		README.md = README.md
+		global.json = global.json
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenTokTest", "OpenTokTest\OpenTokTest.csproj", "{8A4E545A-4A4D-419F-A5B2-567586436764}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "OpenTok", "src\OpenTok\OpenTok.xproj", "{EE87A0C9-C7BB-40CE-835D-41D5B9C5B8AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWorld", "Samples\HelloWorld\HelloWorld.csproj", "{F8A5A9AD-F680-46F4-806F-653E7E51A030}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{CBDE421A-85BC-4D8B-BC9E-01C2F42EA692}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Archiving", "Samples\Archiving\Archiving.csproj", "{B6EFF9BA-20CD-4BDE-B67B-C8E22F00E640}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "OpenTokTest", "test\OpenTokTest\OpenTokTest.xproj", "{27A1D8CD-B400-43DD-B53F-878E1EF5BFFB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -28,24 +22,20 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5CA3CED1-4957-4968-900B-02F0493058E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5CA3CED1-4957-4968-900B-02F0493058E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5CA3CED1-4957-4968-900B-02F0493058E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5CA3CED1-4957-4968-900B-02F0493058E7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8A4E545A-4A4D-419F-A5B2-567586436764}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8A4E545A-4A4D-419F-A5B2-567586436764}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8A4E545A-4A4D-419F-A5B2-567586436764}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8A4E545A-4A4D-419F-A5B2-567586436764}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F8A5A9AD-F680-46F4-806F-653E7E51A030}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F8A5A9AD-F680-46F4-806F-653E7E51A030}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F8A5A9AD-F680-46F4-806F-653E7E51A030}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F8A5A9AD-F680-46F4-806F-653E7E51A030}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B6EFF9BA-20CD-4BDE-B67B-C8E22F00E640}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B6EFF9BA-20CD-4BDE-B67B-C8E22F00E640}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B6EFF9BA-20CD-4BDE-B67B-C8E22F00E640}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B6EFF9BA-20CD-4BDE-B67B-C8E22F00E640}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE87A0C9-C7BB-40CE-835D-41D5B9C5B8AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE87A0C9-C7BB-40CE-835D-41D5B9C5B8AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE87A0C9-C7BB-40CE-835D-41D5B9C5B8AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE87A0C9-C7BB-40CE-835D-41D5B9C5B8AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27A1D8CD-B400-43DD-B53F-878E1EF5BFFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27A1D8CD-B400-43DD-B53F-878E1EF5BFFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27A1D8CD-B400-43DD-B53F-878E1EF5BFFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27A1D8CD-B400-43DD-B53F-878E1EF5BFFB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EE87A0C9-C7BB-40CE-835D-41D5B9C5B8AF} = {A49AA33E-2CF4-434F-B051-3DB1B8E1D48C}
+		{27A1D8CD-B400-43DD-B53F-878E1EF5BFFB} = {CBDE421A-85BC-4D8B-BC9E-01C2F42EA692}
 	EndGlobalSection
 EndGlobal

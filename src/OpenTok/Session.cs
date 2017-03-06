@@ -1,20 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Net;
 using System.Text;
-
-using System.Web;
 
 using OpenTokSDK.Util;
 using OpenTokSDK.Exception;
 
 namespace OpenTokSDK
 {
-    /**
+	/**
      * Defines values for the mediaMode parameter of the CreateSession() method of the
      * OpenTok class.
      */
-    public enum MediaMode
+	public enum MediaMode
     {
         /**
          * The session will transmit streams using the OpenTok Media Router.
@@ -171,7 +168,7 @@ namespace OpenTokSDK
 
             if (CheckConnectionData(connectionData))
             {
-                dataStringBuilder.Append(string.Format("&connection_data={0}", HttpUtility.UrlEncode(connectionData)));
+                dataStringBuilder.Append(string.Format("&connection_data={0}", WebUtility.UrlEncode(connectionData)));
             }
 
             return dataStringBuilder.ToString();

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace OpenTokSDK
 {
@@ -186,11 +187,11 @@ namespace OpenTokSDK
          * Archives automatically stop recording after 120 minutes or when all clients have
          * disconnected from the session being archived.
          */
-        public void Stop()
+        public async Task Stop()
         {
             if (opentok != null)
             {
-                Archive archive = opentok.StopArchive(Id.ToString());
+                Archive archive = await opentok.StopArchive(Id.ToString());
                 Status = archive.Status;
             }
         }

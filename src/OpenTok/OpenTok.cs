@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.Threading.Tasks;
 using OpenTokSDK.Exception;
 using OpenTokSDK.Util;
 
@@ -120,7 +120,7 @@ namespace OpenTokSDK
          * <a href="http://tokbox.com/opentok/libraries/client/js/reference/OT.html#initSession">
          * OT.initSession()</a> method (to initialize an OpenTok session).
          */
-        public Session CreateSession(string location = "", MediaMode mediaMode = MediaMode.RELAYED, ArchiveMode archiveMode = ArchiveMode.MANUAL)
+        public async Task<Session> CreateSession(string location = "", MediaMode mediaMode = MediaMode.RELAYED, ArchiveMode archiveMode = ArchiveMode.MANUAL)
         {
 
             if (!OpenTokUtils.TestIpAddress(location))
@@ -143,7 +143,7 @@ namespace OpenTokSDK
                 {"archiveMode", archiveMode.ToString().ToLower()}
             };
 
-            var response = Client.Post("session/create", headers, data);
+            var response = await Client.Post("session/create", headers, data);
             var xmlDoc = Client.ReadXmlResponse(response);
 
             if (xmlDoc.GetElementsByTagName("session_id").Count == 0)
@@ -243,7 +243,7 @@ namespace OpenTokSDK
          * @return The Archive object. This object includes properties defining the archive,
          * including the archive ID.
          */
-        public Archive StartArchive(string sessionId, string name = "", bool hasVideo = true, bool hasAudio = true, OutputMode outputMode = OutputMode.COMPOSED)
+        public async Task<Archive> StartArchive(string sessionId, string name = "", bool hasVideo = true, bool hasAudio = true, OutputMode outputMode = OutputMode.COMPOSED)
         {
             if (String.IsNullOrEmpty(sessionId))
             {
@@ -252,7 +252,7 @@ namespace OpenTokSDK
             string url = string.Format("v2/partner/{0}/archive", this.ApiKey);
             var headers = new Dictionary<string, string> { { "Content-type", "application/json" } };
             var data = new Dictionary<string, object>() { { "sessionId", sessionId }, { "name", name }, { "hasVideo", hasVideo }, { "hasAudio", hasAudio }, { "outputMode", outputMode.ToString().ToLower() } };
-            string response = Client.Post(url, headers, data);
+            string response = await Client.Post(url, headers, data);
             return OpenTokUtils.GenerateArchive(response, ApiKey, ApiSecret, OpenTokServer);
         }
 
@@ -265,12 +265,12 @@ namespace OpenTokSDK
          * @param archiveId The archive ID of the archive you want to stop recording.
          * @return The Archive object corresponding to the archive being STOPPED.
          */
-        public Archive StopArchive(string archiveId)
+        public async Task<Archive> StopArchive(string archiveId)
         {
             string url = string.Format("v2/partner/{0}/archive/{1}/stop", this.ApiKey, archiveId);
             var headers = new Dictionary<string, string> { { "Content-type", "application/json" } };
 
-            string response = Client.Post(url, headers, new Dictionary<string, object>());
+            string response = await Client.Post(url, headers, new Dictionary<string, object>());
             return JsonConvert.DeserializeObject<Archive>(response);
         }
 
@@ -282,7 +282,7 @@ namespace OpenTokSDK
          *
          * @return A List of Archive objects.
          */
-        public ArchiveList ListArchives()
+        public Task<ArchiveList> ListArchives()
         {
             return ListArchives(0, 0);
         }
@@ -300,7 +300,7 @@ namespace OpenTokSDK
          *
          * @return A List of Archive objects.
          */
-        public ArchiveList ListArchives(int offset, int count)
+        public async Task<ArchiveList> ListArchives(int offset, int count)
         {
             if (count < 0)
             {
@@ -311,7 +311,7 @@ namespace OpenTokSDK
             {
                 url = string.Format("{0}&count={1}", url, count);
             }
-            string response = Client.Get(url);
+            string response = await Client.Get(url);
             JObject archives = JObject.Parse(response);
             JArray archiveArray = (JArray)archives["items"];
             ArchiveList archiveList = new ArchiveList(archiveArray.ToObject<List<Archive>>(), (int)archives["count"]);
@@ -324,11 +324,11 @@ namespace OpenTokSDK
          * @param archiveId The archive ID.
          * @return The Archive object.
          */
-        public Archive GetArchive(string archiveId)
+        public async Task<Archive> GetArchive(string archiveId)
         {
             string url = string.Format("v2/partner/{0}/archive/{1}", this.ApiKey, archiveId);
             var headers = new Dictionary<string, string> { { "Content-type", "application/json" } };
-            string response = Client.Get(url); ;
+            string response = await Client.Get(url);
             return JsonConvert.DeserializeObject<Archive>(response);
         }
 

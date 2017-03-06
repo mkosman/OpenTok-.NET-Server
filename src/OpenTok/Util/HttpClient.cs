@@ -5,9 +5,10 @@ using System.Text;
 
 using System.Net;
 using System.IO;
+using System.Threading.Tasks;
 using System.Xml;
 
-using System.Web;
+//using System.Web;
 
 using Newtonsoft.Json;
 
@@ -39,44 +40,45 @@ namespace OpenTokSDK.Util
             this.userAgent = OpenTokVersion.GetVersion();
         }
 
-        public virtual string Get(string url)
+        public virtual Task<string> Get(string url)
         {
             return Get(url, new Dictionary<string, string>());
         }
 
-        public virtual string Get(string url, Dictionary<string, string> headers)
+        public virtual Task<string> Get(string url, Dictionary<string, string> headers)
         {
             headers.Add("Method", "GET");
             return DoRequest(url, headers, null);
         }
 
-        public virtual string Post(string url, Dictionary<string, string> headers, Dictionary<string, object> data)
+        public virtual Task<string> Post(string url, Dictionary<string, string> headers, Dictionary<string, object> data)
         {
             headers.Add("Method", "POST");
             return DoRequest(url, headers, data);
         }
 
-        public virtual string Delete(string url, Dictionary<string, string> headers, Dictionary<string, object> data)
+        public virtual Task<string> Delete(string url, Dictionary<string, string> headers, Dictionary<string, object> data)
         {
             headers.Add("Method", "DELETE");
             return DoRequest(url, headers, data);
         }
 
-        public string DoRequest(string url, Dictionary<string, string> specificHeaders,
+        public async Task<string> DoRequest(string url, Dictionary<string, string> specificHeaders,
                                         Dictionary<string, object> bodyData)
         {
             string data = GetRequestPostData(bodyData, specificHeaders);
             var headers = GetRequestHeaders(specificHeaders);
             HttpWebRequest request = CreateRequest(url, headers, data);
-            HttpWebResponse response;
+			HttpWebResponse response;
 
-            try
+			try
             {
                 if (!String.IsNullOrEmpty(data))
                 {
                     SendData(request, data);
                 }
-                using (response = (HttpWebResponse) request.GetResponse())
+
+				using (response = (HttpWebResponse)await request.GetResponseAsync())
                 {
                     switch (response.StatusCode)
                     {
@@ -107,9 +109,9 @@ namespace OpenTokSDK.Util
             return xmlDoc;
         }
 
-        private void SendData(HttpWebRequest request, object data)
+        private async Task SendData(HttpWebRequest request, object data)
         {
-            using (StreamWriter stream = new StreamWriter(request.GetRequestStream()))
+            using (StreamWriter stream = new StreamWriter(await request.GetRequestStreamAsync()))
             {
                 stream.Write(data);
             }
@@ -119,13 +121,13 @@ namespace OpenTokSDK.Util
         {
             Uri uri = new Uri(string.Format("{0}/{1}", server, url));
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(uri);
-            request.ContentLength = data.Length;
-            request.UserAgent = userAgent;
+            //request.ContentLength = data.Length;
+            //request.UserAgent = userAgent;
 
             if (headers.ContainsKey("Content-type"))
             {
                 request.ContentType = headers["Content-type"];
-                request.Expect = headers["Content-type"];
+                //request.Expect = headers["Content-type"];
                 headers.Remove("Content-type");
             }
             if (headers.ContainsKey("Method"))
@@ -136,7 +138,7 @@ namespace OpenTokSDK.Util
 
             foreach (KeyValuePair<string, string> entry in headers)
             {
-                request.Headers.Add(entry.Key, entry.Value);
+                request.Headers[entry.Key] = entry.Value;
             }
 
             return request;
@@ -175,7 +177,7 @@ namespace OpenTokSDK.Util
 
             foreach (KeyValuePair<string, object> pair in parameters)
             {
-                data += pair.Key + "=" + HttpUtility.UrlEncode(pair.Value.ToString()) + "&";
+                data += pair.Key + "=" + WebUtility.UrlEncode(pair.Value.ToString()) + "&";
             }
             return data.Substring(0, data.Length - 1);
         }
