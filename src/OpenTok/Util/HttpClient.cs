@@ -75,7 +75,7 @@ namespace OpenTokSDK.Util
             {
                 if (!String.IsNullOrEmpty(data))
                 {
-                    SendData(request, data);
+                    await SendData(request, data);
                 }
 
 				using (response = (HttpWebResponse)await request.GetResponseAsync())
