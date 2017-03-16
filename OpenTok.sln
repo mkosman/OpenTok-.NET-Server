@@ -1,20 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.9
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A49AA33E-2CF4-434F-B051-3DB1B8E1D48C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenTok", "OpenTok\OpenTok.csproj", "{EE87A0C9-C7BB-40CE-835D-41D5B9C5B8AF}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{34871A9F-E4A7-48B9-8752-2765BD27132B}"
-	ProjectSection(SolutionItems) = preProject
-		global.json = global.json
-	EndProjectSection
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "OpenTok", "src\OpenTok\OpenTok.xproj", "{EE87A0C9-C7BB-40CE-835D-41D5B9C5B8AF}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{CBDE421A-85BC-4D8B-BC9E-01C2F42EA692}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "OpenTokTest", "test\OpenTokTest\OpenTokTest.xproj", "{27A1D8CD-B400-43DD-B53F-878E1EF5BFFB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenTokTest", "OpenTokTest\OpenTokTest.csproj", "{27A1D8CD-B400-43DD-B53F-878E1EF5BFFB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,9 +24,5 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{EE87A0C9-C7BB-40CE-835D-41D5B9C5B8AF} = {A49AA33E-2CF4-434F-B051-3DB1B8E1D48C}
-		{27A1D8CD-B400-43DD-B53F-878E1EF5BFFB} = {CBDE421A-85BC-4D8B-BC9E-01C2F42EA692}
 	EndGlobalSection
 EndGlobal
