@@ -102,13 +102,6 @@ namespace OpenTokSDK.Util
 
         }
 
-        public XmlDocument ReadXmlResponse(string xml)
-        {
-            XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.LoadXml(xml);
-            return xmlDoc;
-        }
-
         private async Task SendData(HttpWebRequest request, object data)
         {
             using (StreamWriter stream = new StreamWriter(await request.GetRequestStreamAsync()))

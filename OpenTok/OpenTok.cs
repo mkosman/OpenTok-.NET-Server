@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using OpenTokSDK.Exception;
 using OpenTokSDK.Util;
 
@@ -144,14 +145,15 @@ namespace OpenTokSDK
             };
 
             var response = await Client.Post("session/create", headers, data);
-            var xmlDoc = Client.ReadXmlResponse(response);
+            var xmlDoc = XDocument.Parse(response);
 
-            if (xmlDoc.GetElementsByTagName("session_id").Count == 0)
+            if (!xmlDoc.Descendants("session_id").Any())
             {
                 throw new OpenTokWebException("Session could not be provided. Are ApiKey and ApiSecret correctly set?");
             }
-            var sessionId = xmlDoc.GetElementsByTagName("session_id")[0].ChildNodes[0].Value;
-            var apiKey = Convert.ToInt32(xmlDoc.GetElementsByTagName("partner_id")[0].ChildNodes[0].Value);
+
+            var sessionId = xmlDoc.Descendants("session_id").First().Value;
+            var apiKey = Convert.ToInt32(xmlDoc.Descendants("partner_id").First().Value);
             return new Session(sessionId, apiKey, ApiSecret, location, mediaMode, archiveMode);
         }
 
