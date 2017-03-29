@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <AssemblyName>OpenTokCore</AssemblyName>
+    <Version>1.0.1</Version>
+    <PackageReleaseNotes>Bug Fix - Exceptions being wrapped and not including inner exception</PackageReleaseNotes>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PostBuildEvent>xcopy /Q /Y "$(TargetDir)..\..\*.nupkg" "$(SolutionDir)..\local-nuget-repository"</PostBuildEvent>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Local Nuget|AnyCPU'">
+    <OutputPath>bin\Debug\netcoreapp1.1\</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
+  </ItemGroup>
+
+</Project>
