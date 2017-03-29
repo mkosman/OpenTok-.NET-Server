@@ -7,6 +7,11 @@
     <PackageReleaseNotes>Bug Fix - Exceptions being wrapped and not including inner exception</PackageReleaseNotes>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PostBuildEvent>xcopy /Q /Y "$(TargetDir)..\..\*.nupkg" "$(SolutionDir)..\local-nuget-repository"</PostBuildEvent>
+    <Copyright>https://tokbox.com/</Copyright>
+    <PackageLicenseUrl>https://tokbox.com/</PackageLicenseUrl>
+    <PackageProjectUrl>https://tokbox.com/</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/playgen/Opentok-.NETCore-SDK</RepositoryUrl>
+    <PackageTags>open, tok, opentok, sdk, opentoksdk, .net, core, net, .netcore, netcore, c#</PackageTags>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Local Nuget|AnyCPU'">

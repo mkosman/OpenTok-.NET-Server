@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace OpenTokSDK.Exception
+﻿namespace OpenTokCore.Exception
 {
     /**
      * Defines exceptions in the OpenTok SDK.

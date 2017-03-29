@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-
-using System.Security.Cryptography;
 using System.Net;
-using System.Threading.Tasks;
+using System.Security.Cryptography;
+using System.Text;
 using Newtonsoft.Json;
 
-namespace OpenTokSDK.Util
+namespace OpenTokCore.Util
 {
     public class OpenTokUtils
     {

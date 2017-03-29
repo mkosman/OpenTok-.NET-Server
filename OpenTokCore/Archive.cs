@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace OpenTokSDK
+namespace OpenTokCore
 {
     /**
      * Defines values returned by the Status property of an Archive object. See the ListArchives()

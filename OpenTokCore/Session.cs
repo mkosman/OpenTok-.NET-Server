@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Net;
 using System.Text;
+using OpenTokCore.Exception;
+using OpenTokCore.Util;
 
-using OpenTokSDK.Util;
-using OpenTokSDK.Exception;
-
-namespace OpenTokSDK
+namespace OpenTokCore
 {
 	/**
      * Defines values for the mediaMode parameter of the CreateSession() method of the

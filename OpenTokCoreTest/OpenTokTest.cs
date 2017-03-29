@@ -1,17 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-
-using Xunit;
 using Moq;
+using OpenTokCore;
+using OpenTokCore.Exception;
+using OpenTokCore.Util;
+using Xunit;
 
-using OpenTokSDK;
-using OpenTokSDK.Util;
-using OpenTokSDK.Exception;
-
-namespace OpenTokSDKTest
+namespace OpenTokCoreTest
 {
     public class OpenTokTest
     {

@@ -1,16 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
-using OpenTokSDK.Exception;
-using OpenTokSDK.Util;
-
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using OpenTokCore.Exception;
+using OpenTokCore.Util;
 
-namespace OpenTokSDK
+namespace OpenTokCore
 {
     /**
     * Contains methods for creating OpenTok sessions, generating tokens, and working with archives.

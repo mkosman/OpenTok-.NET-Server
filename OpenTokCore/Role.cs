@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace OpenTokSDK
+﻿namespace OpenTokCore
 {
     /**
     * Defines values for the role parameter of the GenerateToken method of the OpenTok class.

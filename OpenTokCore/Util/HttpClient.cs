@@ -1,21 +1,15 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using System.Net;
 using System.IO;
+using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
-using System.Xml;
-
+using Newtonsoft.Json;
+using OpenTokCore.Constants;
+using OpenTokCore.Exception;
 //using System.Web;
 
-using Newtonsoft.Json;
-
-using OpenTokSDK.Constants;
-using OpenTokSDK.Exception;
-
-namespace OpenTokSDK.Util
+namespace OpenTokCore.Util
 {
     /**
      * For internal use.
