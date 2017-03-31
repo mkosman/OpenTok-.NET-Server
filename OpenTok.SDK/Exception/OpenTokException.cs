@@ -1,4 +1,4 @@
-﻿namespace OpenTokCore.Exception
+﻿namespace OpenTok.SDK.Exception
 {
     /**
      * Defines exceptions in the OpenTok SDK.

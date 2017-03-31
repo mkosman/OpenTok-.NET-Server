@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace OpenTokCore.Constants
+namespace OpenTok.SDK.Constants
 {
     /**
      * For internal use.

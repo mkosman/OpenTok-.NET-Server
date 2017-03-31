@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using OpenTokCore.Exception;
-using OpenTokCore.Util;
+using OpenTok.SDK.Exception;
+using OpenTok.SDK.Util;
 
-namespace OpenTokCore
+namespace OpenTok.SDK
 {
     /**
     * Contains methods for creating OpenTok sessions, generating tokens, and working with archives.

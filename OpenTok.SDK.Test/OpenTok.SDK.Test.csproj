@@ -2,22 +2,14 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp1.1</TargetFramework>
-    <AssemblyName>OpenTokCoreTest</AssemblyName>
-    <PackageId>OpenTokCore</PackageId>
+    <AssemblyName>OpenTok.SDK.Test</AssemblyName>
     <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
     <NetStandardImplicitPackageVersion>1.6.0</NetStandardImplicitPackageVersion>
     <RuntimeFrameworkVersion>1.0.4</RuntimeFrameworkVersion>
     <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
-    <RepositoryUrl></RepositoryUrl>
-    <PackageTags></PackageTags>
-    <PackageProjectUrl>https://tokbox.com/</PackageProjectUrl>
-    <PackageLicenseUrl>https://tokbox.com/</PackageLicenseUrl>
-    <Copyright>https://tokbox.com/</Copyright>
   </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Local Nuget|AnyCPU'" />
 
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.0.0-preview-20170106-08" />
@@ -27,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\OpenTokCore\OpenTokCore.csproj" />
+    <ProjectReference Include="..\OpenTok.SDK\OpenTok.SDK.csproj" />
   </ItemGroup>
 
   <ItemGroup>

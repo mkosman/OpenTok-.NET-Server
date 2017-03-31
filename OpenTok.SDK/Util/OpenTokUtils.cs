@@ -5,7 +5,7 @@ using System.Security.Cryptography;
 using System.Text;
 using Newtonsoft.Json;
 
-namespace OpenTokCore.Util
+namespace OpenTok.SDK.Util
 {
     public class OpenTokUtils
     {

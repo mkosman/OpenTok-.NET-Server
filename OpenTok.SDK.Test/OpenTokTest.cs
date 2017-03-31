@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Moq;
-using OpenTokCore;
-using OpenTokCore.Exception;
-using OpenTokCore.Util;
+using OpenTok.SDK.Exception;
+using OpenTok.SDK.Util;
 using Xunit;
 
-namespace OpenTokCoreTest
+namespace OpenTok.SDK.Test
 {
     public class OpenTokTest
     {
@@ -17,8 +16,8 @@ namespace OpenTokCoreTest
         [Fact]
         public void InitializationTest()
         {
-            var opentok = new OpenTok(apiKey, apiSecret);
-            Assert.IsType(typeof(OpenTok), opentok);
+            var opentok = new global::OpenTok.SDK.OpenTok(apiKey, apiSecret);
+            Assert.IsType(typeof(global::OpenTok.SDK.OpenTok), opentok);
         }
         
         // TODO: all create session and archive tests should verify the HTTP request body
@@ -37,7 +36,7 @@ namespace OpenTokCoreTest
             
             HttpClient client = mockClient.Object;
 
-            OpenTok opentok = new OpenTok(apiKey, apiSecret);
+            global::OpenTok.SDK.OpenTok opentok = new global::OpenTok.SDK.OpenTok(apiKey, apiSecret);
             opentok.Client = client;
             Session session = await opentok.CreateSession();
 
@@ -64,7 +63,7 @@ namespace OpenTokCoreTest
 
             HttpClient client = mockClient.Object;
 
-            OpenTok opentok = new OpenTok(apiKey, apiSecret);
+            global::OpenTok.SDK.OpenTok opentok = new global::OpenTok.SDK.OpenTok(apiKey, apiSecret);
             opentok.Client = client;
             Session session = await opentok.CreateSession(mediaMode: MediaMode.ROUTED);
 
@@ -91,7 +90,7 @@ namespace OpenTokCoreTest
 
             HttpClient client = mockClient.Object;
 
-            OpenTok opentok = new OpenTok(apiKey, apiSecret);
+            global::OpenTok.SDK.OpenTok opentok = new global::OpenTok.SDK.OpenTok(apiKey, apiSecret);
             opentok.Client = client;
             Session session = await opentok.CreateSession(location: "0.0.0.0");
 
@@ -119,7 +118,7 @@ namespace OpenTokCoreTest
 
             HttpClient client = mockClient.Object;
 
-            OpenTok opentok = new OpenTok(apiKey, apiSecret);
+            global::OpenTok.SDK.OpenTok opentok = new global::OpenTok.SDK.OpenTok(apiKey, apiSecret);
             opentok.Client = client;
             Session session = await opentok.CreateSession(location: "0.0.0.0", mediaMode: MediaMode.ROUTED);
 
@@ -146,7 +145,7 @@ namespace OpenTokCoreTest
 
             HttpClient client = mockClient.Object;
 
-            OpenTok opentok = new OpenTok(apiKey, apiSecret);
+            global::OpenTok.SDK.OpenTok opentok = new global::OpenTok.SDK.OpenTok(apiKey, apiSecret);
             opentok.Client = client;
             Session session = await opentok.CreateSession(mediaMode: MediaMode.ROUTED, archiveMode: ArchiveMode.ALWAYS);
 
@@ -165,7 +164,7 @@ namespace OpenTokCoreTest
             var mockClient = new Mock<HttpClient>();
             mockClient.Setup(httpClient => httpClient.Post(It.IsAny<string>(), It.IsAny<Dictionary<string, string>>(), It.IsAny<Dictionary<string, object>>())).ReturnsAsync("This function should not return anything");
 
-            OpenTok opentok = new OpenTok(apiKey, apiSecret);
+            global::OpenTok.SDK.OpenTok opentok = new global::OpenTok.SDK.OpenTok(apiKey, apiSecret);
             Session session;
             try
             {
@@ -184,7 +183,7 @@ namespace OpenTokCoreTest
             var mockClient = new Mock<HttpClient>();
             mockClient.Setup(httpClient => httpClient.Post(It.IsAny<string>(), It.IsAny<Dictionary<string, string>>(), It.IsAny<Dictionary<string, object>>())).ReturnsAsync("This function should not return anything");
 
-            OpenTok opentok = new OpenTok(apiKey, apiSecret);
+            global::OpenTok.SDK.OpenTok opentok = new global::OpenTok.SDK.OpenTok(apiKey, apiSecret);
             Session session;
             try
             {
@@ -200,7 +199,7 @@ namespace OpenTokCoreTest
         [Fact]
         public void GenerateTokenTest()
         {
-            OpenTok opentok = new OpenTok(apiKey, apiSecret);
+            global::OpenTok.SDK.OpenTok opentok = new global::OpenTok.SDK.OpenTok(apiKey, apiSecret);
             
             String sessionId = "1_MX4xMjM0NTZ-flNhdCBNYXIgMTUgMTQ6NDI6MjMgUERUIDIwMTR-MC40OTAxMzAyNX4";          
             string token = opentok.GenerateToken(sessionId);
@@ -218,7 +217,7 @@ namespace OpenTokCoreTest
         [Fact]
         public void GenerateTokenWithRoleTest()
         {
-            OpenTok opentok = new OpenTok(apiKey, apiSecret);
+            global::OpenTok.SDK.OpenTok opentok = new global::OpenTok.SDK.OpenTok(apiKey, apiSecret);
 
             String sessionId = "1_MX4xMjM0NTZ-flNhdCBNYXIgMTUgMTQ6NDI6MjMgUERUIDIwMTR-MC40OTAxMzAyNX4";
             string token = opentok.GenerateToken(sessionId, role:Role.SUBSCRIBER);
@@ -237,7 +236,7 @@ namespace OpenTokCoreTest
         [Fact]
         public void GenerateTokenWithExpireTimeTest()
         {
-            OpenTok opentok = new OpenTok(apiKey, apiSecret);
+            global::OpenTok.SDK.OpenTok opentok = new global::OpenTok.SDK.OpenTok(apiKey, apiSecret);
             double expireTime = OpenTokUtils.GetCurrentUnixTimeStamp() + 10;
 
             String sessionId = "1_MX4xMjM0NTZ-flNhdCBNYXIgMTUgMTQ6NDI6MjMgUERUIDIwMTR-MC40OTAxMzAyNX4";
@@ -257,7 +256,7 @@ namespace OpenTokCoreTest
         [Fact]
         public void GenerateTokenWithConnectionDataTest()
         {
-            OpenTok opentok = new OpenTok(apiKey, apiSecret);
+            global::OpenTok.SDK.OpenTok opentok = new global::OpenTok.SDK.OpenTok(apiKey, apiSecret);
             double expireTime = OpenTokUtils.GetCurrentUnixTimeStamp() + 10;
             string connectionData =  "Somedatafortheconnection";
             String sessionId = "1_MX4xMjM0NTZ-flNhdCBNYXIgMTUgMTQ6NDI6MjMgUERUIDIwMTR-MC40OTAxMzAyNX4";
@@ -278,8 +277,8 @@ namespace OpenTokCoreTest
         public void GenerateInvalidTokensTest()
         {
             string token;
-            OpenTok opentok = new OpenTok(apiKey, apiSecret);
-            var exceptions = new List<Exception>();
+            global::OpenTok.SDK.OpenTok opentok = new global::OpenTok.SDK.OpenTok(apiKey, apiSecret);
+            var exceptions = new List<System.Exception>();
             try
             {
                 // Generate token with empty sessionId
@@ -311,7 +310,7 @@ namespace OpenTokCoreTest
             }
 
             Assert.Equal(exceptions.Count, 3);
-            foreach(Exception exception in exceptions)
+            foreach(System.Exception exception in exceptions)
             {
                 Assert.True(exception is OpenTokArgumentException);
             }
@@ -338,7 +337,7 @@ namespace OpenTokCoreTest
             var mockClient = new Mock<HttpClient>();
             mockClient.Setup(httpClient => httpClient.Get(It.IsAny<string>())).ReturnsAsync(returnString);
             
-            OpenTok opentok = new OpenTok(apiKey, apiSecret);
+            global::OpenTok.SDK.OpenTok opentok = new global::OpenTok.SDK.OpenTok(apiKey, apiSecret);
             opentok.Client = mockClient.Object;
             Archive archive = await opentok.GetArchive(archiveId);
 
@@ -375,7 +374,7 @@ namespace OpenTokCoreTest
             var mockClient = new Mock<HttpClient>();
             mockClient.Setup(httpClient => httpClient.Get(It.IsAny<string>())).ReturnsAsync(returnString);
 
-            OpenTok opentok = new OpenTok(apiKey, apiSecret);
+            global::OpenTok.SDK.OpenTok opentok = new global::OpenTok.SDK.OpenTok(apiKey, apiSecret);
             opentok.Client = mockClient.Object;
             Archive archive = await opentok.GetArchive(archiveId);
 
@@ -403,7 +402,7 @@ namespace OpenTokCoreTest
             var mockClient = new Mock<HttpClient>();
             mockClient.Setup(httpClient => httpClient.Get(It.IsAny<string>())).ReturnsAsync(returnString);
 
-            OpenTok opentok = new OpenTok(apiKey, apiSecret);
+            global::OpenTok.SDK.OpenTok opentok = new global::OpenTok.SDK.OpenTok(apiKey, apiSecret);
             opentok.Client = mockClient.Object;
             Archive archive = await opentok.GetArchive(archiveId);
 
@@ -501,7 +500,7 @@ namespace OpenTokCoreTest
             var mockClient = new Mock<HttpClient>();
             mockClient.Setup(httpClient => httpClient.Get(It.IsAny<string>())).ReturnsAsync(returnString);
 
-            OpenTok opentok = new OpenTok(apiKey, apiSecret);
+            global::OpenTok.SDK.OpenTok opentok = new global::OpenTok.SDK.OpenTok(apiKey, apiSecret);
             opentok.Client = mockClient.Object;
             ArchiveList archives = await opentok.ListArchives();
 
@@ -530,7 +529,7 @@ namespace OpenTokCoreTest
             var mockClient = new Mock<HttpClient>();
             mockClient.Setup(httpClient => httpClient.Post(It.IsAny<string>(), It.IsAny<Dictionary<string, string>>(), It.IsAny<Dictionary<string, object>>())).ReturnsAsync(returnString);
             
-            OpenTok opentok = new OpenTok(apiKey, apiSecret);
+            global::OpenTok.SDK.OpenTok opentok = new global::OpenTok.SDK.OpenTok(apiKey, apiSecret);
             opentok.Client = mockClient.Object;
             Archive archive = await opentok.StartArchive(sessionId, null);
 
@@ -561,7 +560,7 @@ namespace OpenTokCoreTest
             var mockClient = new Mock<HttpClient>();
             mockClient.Setup(httpClient => httpClient.Post(It.IsAny<string>(), It.IsAny<Dictionary<string, string>>(), It.IsAny<Dictionary<string, object>>())).ReturnsAsync(returnString);
 
-            OpenTok opentok = new OpenTok(apiKey, apiSecret);
+            global::OpenTok.SDK.OpenTok opentok = new global::OpenTok.SDK.OpenTok(apiKey, apiSecret);
             opentok.Client = mockClient.Object;
             Archive archive = await opentok.StartArchive(sessionId, outputMode: OutputMode.INDIVIDUAL);
 
@@ -592,7 +591,7 @@ namespace OpenTokCoreTest
             var mockClient = new Mock<HttpClient>();
             mockClient.Setup(httpClient => httpClient.Post(It.IsAny<string>(), It.IsAny<Dictionary<string, string>>(), It.IsAny<Dictionary<string, object>>())).ReturnsAsync(returnString);
 
-            OpenTok opentok = new OpenTok(apiKey, apiSecret);
+            global::OpenTok.SDK.OpenTok opentok = new global::OpenTok.SDK.OpenTok(apiKey, apiSecret);
             opentok.Client = mockClient.Object;
             Archive archive = await opentok.StartArchive(sessionId, hasVideo: false);
 
@@ -624,7 +623,7 @@ namespace OpenTokCoreTest
                 It.IsAny<Dictionary<string, string>>(), 
                 It.IsAny<Dictionary<string, object>>())).ReturnsAsync(returnString);
 
-            OpenTok opentok = new OpenTok(apiKey, apiSecret);
+            global::OpenTok.SDK.OpenTok opentok = new global::OpenTok.SDK.OpenTok(apiKey, apiSecret);
             opentok.Client = mockClient.Object;
             Archive archive = await opentok.StopArchive(archiveId);
 
@@ -648,7 +647,7 @@ namespace OpenTokCoreTest
                 It.IsAny<Dictionary<string, string>>(),
                 It.IsAny<Dictionary<string, object>>()));
 
-            OpenTok opentok = new OpenTok(apiKey, apiSecret);
+            global::OpenTok.SDK.OpenTok opentok = new global::OpenTok.SDK.OpenTok(apiKey, apiSecret);
             opentok.Client = mockClient.Object;
             opentok.DeleteArchive(archiveId);
 
