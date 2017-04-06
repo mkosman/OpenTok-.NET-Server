@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26228.9
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenTok.SDK.Test", "OpenTok.SDK.Test\OpenTok.SDK.Test.csproj", "{27A1D8CD-B400-43DD-B53F-878E1EF5BFFB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenTok.Server.Test", "OpenTok.Server.Test\OpenTok.Server.Test.csproj", "{27A1D8CD-B400-43DD-B53F-878E1EF5BFFB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenTok.SDK", "OpenTok.SDK\OpenTok.SDK.csproj", "{226E6456-7424-4E3D-B6CE-423EFE45960E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenTok.Server", "OpenTok.Server\OpenTok.Server.csproj", "{226E6456-7424-4E3D-B6CE-423EFE45960E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

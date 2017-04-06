@@ -1,4 +1,4 @@
-﻿namespace OpenTok.SDK
+﻿namespace OpenTok.Server
 {
     /**
     * Defines values for the role parameter of the GenerateToken method of the OpenTok class.

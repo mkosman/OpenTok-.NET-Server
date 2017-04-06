@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace OpenTok.SDK
+namespace OpenTok.Server
 {
     /**
      * A class for accessing an array of Archive objects.

@@ -5,12 +5,12 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using OpenTok.SDK.Constants;
-using OpenTok.SDK.Exception;
+using OpenTok.Server.Constants;
+using OpenTok.Server.Exception;
 
 //using System.Web;
 
-namespace OpenTok.SDK.Util
+namespace OpenTok.Server.Util
 {
     /**
      * For internal use.

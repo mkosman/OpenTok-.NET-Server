@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFrameworks>netcoreapp1.1;net46</TargetFrameworks>
-    <AssemblyName>OpenTok.SDK</AssemblyName>
+    <AssemblyName>OpenTok.Server</AssemblyName>
     <Version>1.0.1</Version>
     <PackageReleaseNotes>Bug Fix - Exceptions being wrapped and not including inner exception</PackageReleaseNotes>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>

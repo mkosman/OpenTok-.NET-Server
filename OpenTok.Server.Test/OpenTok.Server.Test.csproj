@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp1.1</TargetFramework>
-    <AssemblyName>OpenTok.SDK.Test</AssemblyName>
+    <AssemblyName>OpenTok.Server.Test</AssemblyName>
     <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
     <NetStandardImplicitPackageVersion>1.6.0</NetStandardImplicitPackageVersion>
     <RuntimeFrameworkVersion>1.0.4</RuntimeFrameworkVersion>
@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\OpenTok.SDK\OpenTok.SDK.csproj" />
+    <ProjectReference Include="..\OpenTok.Server\OpenTok.Server.csproj" />
   </ItemGroup>
 
   <ItemGroup>
