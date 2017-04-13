@@ -341,11 +341,11 @@ namespace OpenTok.Server
          *
          * @param archiveId The archive ID of the archive you want to delete.
          */
-        public void DeleteArchive(string archiveId)
+        public async Task DeleteArchive(string archiveId)
         {
             string url = string.Format("v2/partner/{0}/archive/{1}", this.ApiKey, archiveId);
             var headers = new Dictionary<string, string> { { "Content-type", "application/json" } };
-            Client.Delete(url, headers, new Dictionary<string, object>());
+            await Client.Delete(url, headers, new Dictionary<string, object>());
         }
     }
 }
