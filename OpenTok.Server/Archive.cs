@@ -184,7 +184,12 @@ namespace OpenTok.Server
          * Archives automatically stop recording after 120 minutes or when all clients have
          * disconnected from the session being archived.
          */
-        public async Task Stop()
+        public void Stop()
+        {
+            StopAsync().Wait();
+        }
+
+        public async Task StopAsync()
         {
             if (opentok != null)
             {
@@ -202,9 +207,14 @@ namespace OpenTok.Server
          */
         public void Delete()
         {
+            DeleteAsync().Wait();
+        }
+
+        public async Task DeleteAsync()
+        {
             if (opentok != null)
             {
-                opentok.DeleteArchive(Id.ToString());
+                await opentok.DeleteArchive(Id.ToString());
             }
         }
     }
