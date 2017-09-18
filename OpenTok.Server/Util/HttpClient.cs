@@ -78,9 +78,10 @@ namespace OpenTok.Server.Util
                     switch (response.StatusCode)
                     {
                         case HttpStatusCode.OK:
-                            using (var stream = new StreamReader(response.GetResponseStream()))
+							using(var stream = response.GetResponseStream())
+                            using (var reader = new StreamReader(stream))
                             {
-                                return stream.ReadToEnd();
+                                return reader.ReadToEnd();
                             }
                         case HttpStatusCode.NoContent:
                             return "";
@@ -99,9 +100,10 @@ namespace OpenTok.Server.Util
 
         private async Task SendData(HttpWebRequest request, object data)
         {
-            using (StreamWriter stream = new StreamWriter(await request.GetRequestStreamAsync()))
+			using (var stream = await request.GetRequestStreamAsync())
+            using (StreamWriter writer = new StreamWriter(stream))
             {
-                stream.Write(data);
+                writer.Write(data);
             }
         }
 
