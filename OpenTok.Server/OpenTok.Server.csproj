@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp1.1;net452</TargetFrameworks>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
     <AssemblyName>OpenTok.Server</AssemblyName>
     <Version>1.0.1</Version>
     <PackageReleaseNotes>Bug Fix - Exceptions being wrapped and not including inner exception</PackageReleaseNotes>
@@ -11,10 +11,11 @@
     <PackageProjectUrl>https://tokbox.com/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/playgen/Opentok-.NETCore-SDK</RepositoryUrl>
     <PackageTags>open, tok, opentok, sdk, opentoksdk, .net, core, net, .netcore, netcore, c#, net46</PackageTags>
+    <StartupObject />
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
   </ItemGroup>
 
 </Project>
