@@ -17,7 +17,7 @@ namespace OpenTok.Server.Test
         public void InitializationTest()
         {
             var opentok = new OpenTok(apiKey, apiSecret);
-            Assert.IsType(typeof(OpenTok), opentok);
+            Assert.IsType<OpenTok>(opentok);
         }
         
         // TODO: all create session and archive tests should verify the HTTP request body

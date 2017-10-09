@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <AssemblyName>OpenTok.Server</AssemblyName>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <PackageReleaseNotes>Bug Fix - Exceptions being wrapped and not including inner exception</PackageReleaseNotes>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Copyright>https://tokbox.com/</Copyright>
